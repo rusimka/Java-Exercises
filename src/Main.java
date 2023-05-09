@@ -58,8 +58,6 @@ public class Main {
     //        list -> list.stream().filter(isDivisibleByThree).forEach(System.out::println);
     //    displayDivisibleNumbers.accept(numbers2);
 
-    Consumer<ArrayList<Integer>> displayDivisibleNumbers =
-        list -> list.stream().filter(number -> number % 3 == 0).forEach(System.out::println);
-    displayDivisibleNumbers.accept(numbers2);
+    numbers2.stream().filter(number -> number % 3 == 0).forEach(number -> System.out.println(number));
   }
 }

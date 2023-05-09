@@ -36,8 +36,9 @@ public class Main {
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
     Predicate<Integer> isEven = number -> number % 2 == 0;
     Function<Integer, Integer> multipleByTen = number -> number * 10;
-    List<Integer> resultList =
-        numbers.stream().filter(isEven).map(multipleByTen).collect(Collectors.toList());
+//    List<Integer> resultList =
+//        numbers.stream().filter(isEven).map(multipleByTen).collect(Collectors.toList());
+    List<Integer> resultList = numbers.stream().filter(number -> number % 2 == 0).map(number -> number * 10).collect(Collectors.toList());
     System.out.println("Result: " + resultList);
 
     /*
@@ -51,11 +52,14 @@ public class Main {
     /*
     Exercise 3: Function that will convert array list in stream and for each element if it's divisible by three, to print out that's divisible with three
      */
-    ArrayList<Integer> numbers2 =
-        new ArrayList<>(Arrays.asList(1, 3, 4, 9, 12, 15, 16, 18, 21, 25, 27, 30));
-    Predicate<Integer> isDivisibleByThree = number -> number % 3 == 0;
+    ArrayList<Integer> numbers2 = new ArrayList<>(Arrays.asList(1, 3, 4, 9, 12, 15, 16, 18, 21, 25, 27, 30));
+    //    Predicate<Integer> isDivisibleByThree = number -> number % 3 == 0;
+    //    Consumer<ArrayList<Integer>> displayDivisibleNumbers =
+    //        list -> list.stream().filter(isDivisibleByThree).forEach(System.out::println);
+    //    displayDivisibleNumbers.accept(numbers2);
+
     Consumer<ArrayList<Integer>> displayDivisibleNumbers =
-        list -> list.stream().filter(isDivisibleByThree).forEach(System.out::println);
+        list -> list.stream().filter(number -> number % 3 == 0).forEach(System.out::println);
     displayDivisibleNumbers.accept(numbers2);
   }
 }
